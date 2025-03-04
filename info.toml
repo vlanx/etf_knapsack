@@ -1,0 +1,10 @@
+[tickers]
+VUAA = "VUAA.DE"
+VWCE = "VWCE.DE"
+QDVE = "QDVE.DE"
+
+[allocation]
+VUAA = 30
+VWCE = 20
+QDVE = 50
+MONEY = 5000
