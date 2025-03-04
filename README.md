@@ -6,9 +6,7 @@ Have you ever wondered how many combinations of each ETF you can buy given your 
 
 This Python scripts is here to help.
 
-Simply edit the `info.toml` file with your personal portfolio allocation and savings amount and run the script.
-
-A sample `info.toml` file is provided.
+Simply edit the `info.toml` (a sample one is provided) file with your personal portfolio allocation and savings amount and run the script.
 
 ## Usage
 ```
@@ -91,13 +89,16 @@ As you can see, it outputs all the combinations that you can make with 500€. I
 
 The window can be adjusted as well. It simply provides a range for the total amount of money that can be spent. [500-window] to [500+window].
 
+The current commission price is calculated by [IBKR](https://www.interactivebrokers.ie/en/home.php) standards.
+
 
 #### TODO
     1) Enhance the output. Probably needs to be more concise and I should add color.
     2) Provide ways to optimize the combinatorial algorithm. e.g, discard options which have an ETF you don't want to buy this month.
     3) Provide Allocation Goals (% of weight for each ETF) and present the outputs in order of best match.
-    3) GUI?
-    4) More API options. Currently only Yahoo Finance is available.
+    4) Provide more brokers and their respective commission policy.
+    5) GUI?
+    6) More API options. Currently only Yahoo Finance is available.
 
 # ⚠️ Disclaimer
 This tool is for informational and educational purposes only. It does not provide financial, investment, or trading advice. 

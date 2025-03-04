@@ -151,14 +151,14 @@ def print_combinations(prices, quantity, combinations, balance):
     for idx, comb in enumerate(combinations):
         new_weights = calculate_new_balance(prices, quantity, comb)
         buy_price = calculate_buy_price(prices, comb)
-        comissions = calculate_commission(comb)
+        commissions = calculate_commission(comb)
         print(
             f"---------------------------------------------------------------",
             f"\nOpt. {idx+1} | Buying",
             ", ".join([f"{ammount} {etf}" for etf, ammount in comb.items()]),
             f"would use {buy_price:,.2f}€",
-            f"with +{comissions:,.2f}€ comission",
-            f"for {(buy_price+comissions):,.2f}€ total."
+            f"with +{commissions:,.2f}€ commission",
+            f"for {(buy_price+commissions):,.2f}€ total."
             f"\nPortfolio allocation would be:",
             " | ".join(
                 [
