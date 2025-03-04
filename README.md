@@ -10,14 +10,23 @@ Simply edit the `info.toml` file with your personal portfolio allocation and sav
 
 A sample `info.toml` file is provided.
 
-### Usage
-`pip3 install -r requirements.txt`
+## Usage
+```
+cd ~
+git clone "https://github.com/dot-1q/etf_knapsack.git"
+cd etf_knapsack
+pip3 install -r requirements.txt
+```
 
-`python3 knapsack.py --budget <budget>`
+```
+python3 knapsack.py --budget <budget>
+```
 or
-`python3 knapsack.py --budget <budget> --window <window>`
+```
+python3 knapsack.py --budget <budget> --window <window>
+```
 
-### `info.toml`
+## Configuration file `info.toml`
 
     Place in `[tickers]` the tickers of the ETFs you own. The ticker has to come from [Yahoo Finance](https://finance.yahoo.com/). No registration needed, but has free usage rate limits. [yfinance](https://github.com/ranaroussi/yfinance)
 
@@ -40,7 +49,7 @@ Edit `[allocation]` to reflect your current amount of owned ETFs positions and a
 MONEY = 100000 # In Euros/Dollars
 ```
 
-### Output
+## Output
 For the sample `info.toml` file.
 
 ```
@@ -89,8 +98,7 @@ The window can be adjusted as well. It simply provides a range for the total amo
     3) GUI?
     4) More API options. Currently only Yahoo Finance is available.
 
-# ⚠️ Disclaimer:
+# ⚠️ Disclaimer
 This tool is for informational and educational purposes only. It does not provide financial, investment, or trading advice. 
 Use it at your own risk. Always consult a financial professional before making investment decisions. 
 The author is not responsible for any financial losses or decisions made based on the output of this tool.
-
