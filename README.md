@@ -28,7 +28,7 @@ python3 knapsack.py --budget <budget> --window <window>
 
 ## Configuration file `info.toml`
 
-Place in `[tickers]` the tickers of the ETFs you own. The ticker has to come from [Yahoo Finance](https://finance.yahoo.com/). No registration needed, but has free usage rate limits. [yfinance](https://github.com/ranaroussi/yfinance)
+Place in `[tickers]` the tickers of the ETFs you own. The ticker has to come from [Yahoo Finance](https://finance.yahoo.com/). No registration needed, but has free usage rate limits. Check [yfinance](https://github.com/ranaroussi/yfinance)
 
 Ex: [VWCE](https://finance.yahoo.com/quote/VWCE.DE/) is `VWCE.DE`
 
@@ -95,6 +95,7 @@ The window can be adjusted as well. It simply provides a range for the total amo
 #### TODO
     1) Enhance the output. Probably needs to be more concise and I should add color.
     2) Provide ways to optimize the combinatorial algorithm. e.g, discard options which have an ETF you don't want to buy this month.
+    3) Provide Allocation Goals (% of weight for each ETF) and present the outputs in order of best match.
     3) GUI?
     4) More API options. Currently only Yahoo Finance is available.
 
