@@ -1,8 +1,8 @@
 # ETF Knapsack Problem
 
-Do you invest monthly into more than one *ETF*? 
+Do you invest monthly into more than one **ETF**? 
 
-Have you ever wondered how many combinations of each ETF you can buy given your *monthly budget*?
+Have you ever wondered how many combinations of each ETF you can buy given your **monthly budget**?
 
 This Python scripts is here to help.
 
