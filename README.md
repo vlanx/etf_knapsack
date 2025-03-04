@@ -28,7 +28,7 @@ python3 knapsack.py --budget <budget> --window <window>
 
 ## Configuration file `info.toml`
 
-    Place in `[tickers]` the tickers of the ETFs you own. The ticker has to come from [Yahoo Finance](https://finance.yahoo.com/). No registration needed, but has free usage rate limits. [yfinance](https://github.com/ranaroussi/yfinance)
+Place in `[tickers]` the tickers of the ETFs you own. The ticker has to come from [Yahoo Finance](https://finance.yahoo.com/). No registration needed, but has free usage rate limits. [yfinance](https://github.com/ranaroussi/yfinance)
 
 Ex: [VWCE](https://finance.yahoo.com/quote/VWCE.DE/) is `VWCE.DE`
 
