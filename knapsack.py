@@ -1,7 +1,8 @@
-import yfinance as yf
 import argparse
-import tomllib
 import itertools
+import tomllib
+import yfinance as yf
+from typing import Any
 
 
 def calculate_allocation(prices, budget, window=10):
@@ -39,13 +40,13 @@ def calculate_allocation(prices, budget, window=10):
 
 
 def product_to_combination(prices, products):
-    combinations = []
     """
     For every product with the various quantities of the ETFs,
     associate said quantities to the corresponding ETF.
     This hinges on the fact that every read of a python dictionary
     is the same, i.e., the order of etfs is the same.
     """
+    combinations = []
     for product in products:
         combinations.append(dict(zip(prices.keys(), product)))
 
@@ -138,7 +139,7 @@ def get_ticker_prices(tickers):
     return prices
 
 
-def load_info():
+def load_info() -> dict[str, Any]:
     with open("info.toml", "rb") as f:
         return tomllib.load(f)
 
@@ -154,15 +155,15 @@ def print_combinations(prices, quantity, combinations, balance):
         commissions = calculate_commission(comb)
         print(
             f"---------------------------------------------------------------",
-            f"\nOpt. {idx+1} | Buying",
+            f"\nOpt. {idx + 1} | Buying",
             ", ".join([f"{ammount} {etf}" for etf, ammount in comb.items()]),
             f"would use {buy_price:,.2f}€",
             f"with +{commissions:,.2f}€ commission",
-            f"for {(buy_price+commissions):,.2f}€ total."
+            f"for {(buy_price + commissions):,.2f}€ total."
             f"\nPortfolio allocation would be:",
             " | ".join(
                 [
-                    f"{etf}: {weight:.2f}%({delta(weight,balance[etf])}%)"
+                    f"{etf}: {weight:.2f}%({delta(weight, balance[etf])}%)"
                     for etf, weight in new_weights.items()
                 ]
             ),
