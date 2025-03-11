@@ -94,11 +94,12 @@ The current commission price is calculated by [IBKR](https://www.interactivebrok
 
 #### TODO
     1) Enhance the output. Probably needs to be more concise and I should add color.
-    2) Provide ways to optimize the combinatorial algorithm. e.g, discard options which have an ETF you don't want to buy this month.
-    3) Provide Allocation Goals (% of weight for each ETF) and present the outputs in order of best match.
-    4) Provide more brokers and their respective commission policy.
-    5) GUI?
-    6) More API options. Currently only Yahoo Finance is available.
+    2) Allow for `float` numbers in allocation for fractional shares.
+    3) Provide ways to optimize the combinatorial algorithm. e.g, discard options which have an ETF you don't want to buy this month.
+    4) Provide Allocation Goals (% of weight for each ETF) and present the outputs in order of best match.
+    5) Provide more brokers and their respective commission policy.
+    6) GUI?
+    7) More API options. Currently only Yahoo Finance is available.
 
 # ⚠️ Disclaimer
 This tool is for informational and educational purposes only. It does not provide financial, investment, or trading advice. 
