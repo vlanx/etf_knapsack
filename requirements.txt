@@ -15,7 +15,8 @@ pytz==2024.2
 requests==2.32.3
 six==1.17.0
 soupsieve==2.6
+toml==0.10.2
 tzdata==2025.1
 urllib3==2.3.0
 webencodings==0.5.1
-yfinance==0.2.52
+yfinance==0.2.54

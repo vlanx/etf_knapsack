@@ -1,6 +1,6 @@
 import argparse
 import itertools
-import tomllib
+import toml
 import yfinance as yf
 from typing import Any
 
@@ -158,8 +158,7 @@ def delta(new_weight: float, current_weight: float):
 
 
 def load_info() -> dict[str, Any]:
-    with open("info.toml", "rb") as f:
-        return tomllib.load(f)
+    return toml.load("info.toml")
 
 
 def print_combinations(
@@ -193,6 +192,27 @@ def print_combinations(
         )
 
 
+def update_allocation_file(
+    allocation: dict[str, Any], combinations: list[dict[str, int]], comb: int
+):
+    print(
+        f"---------------------------------------------------------------",
+        f"\nOpt. {comb} | Buying",
+        ", ".join(
+            [f"{ammount} {etf}" for etf, ammount in combinations[comb - 1].items()]
+        ),
+    )
+    confirm = input("Confirm this option? [y/n]: ")
+    if confirm == "y":
+        for etf, ammount in combinations[comb - 1].items():
+            allocation["allocation"][etf] += ammount
+
+        # Write to file
+        with open("info.toml", "w") as f:
+            toml.dump(allocation, f)
+            print("New allocation updated!")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--budget", help="Ammount of money to be invested")
@@ -224,5 +244,22 @@ if __name__ == "__main__":
         )
         combinations = calculate_allocation(prices, budget=b, window=w)
         print_combinations(prices, info["allocation"], combinations, balance)
+        # Automatically update allocation file if an order is chosen.
+        order = input("\nPlacing an Order? [y/n]: ")
+        if order == "y":
+            # Update values
+            comb = int(input("Which option?: "))
+            update_allocation_file(info, combinations, comb)
+            # Show new allocation
+            info = load_info()
+            balance, _ = calculate_current_balance(prices, info["allocation"])
+            print(
+                "New Portfolio Allocation:",
+                " | ".join(
+                    [f"{etf}: {weight:.2f}%" for etf, weight in balance.items()]
+                ),
+                f"\nValue: {total_money:,.2f}€",
+            )
+        print("Goodbye!")
     else:
         print("No budget ammount specified")
