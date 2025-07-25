@@ -16,7 +16,8 @@ def calculate_allocation(prices: dict[str, float], budget: int, window=10):
     # Get the max quantities that can be bough of each ETF given the budget.
     max_quantities: dict[str, int] = {}
     for etf, cost in prices.items():
-        max_quantities[etf] = int(budget // cost)
+        # The budget will include the upper limit of the window.
+        max_quantities[etf] = int((budget + window) // cost)
 
     # Create a list of range objects, one for each ETF
     quantity_ranges: dict[str, range] = {}
@@ -252,7 +253,7 @@ if __name__ == "__main__":
             update_allocation_file(info, combinations, comb)
             # Show new allocation
             info = load_info()
-            balance, _ = calculate_current_balance(prices, info["allocation"])
+            balance, total_money = calculate_current_balance(prices, info["allocation"])
             print(
                 "New Portfolio Allocation:",
                 " | ".join(
